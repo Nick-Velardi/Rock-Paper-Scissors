@@ -12,46 +12,22 @@ const computerPlay = function () {
   return result;
 };
 
-const result = computerPlay();
+const computerSelection = computerPlay();
 
 let playerSelection = prompt(`Rock, Paper or Scissors?`).toUpperCase();
 
-const playRound = function (result, playerSelection) {
-  if (result == "ROCK" && playerSelection == "SCISSORS") {
-    console.log("Rock beats scissors! You lose.");
-  } else if (result == "SCISSORS" && playerSelection == "PAPER") {
-    console.log("Scissors beats paper! You lose.");
-  } else if (result == "PAPER" && playerSelection == "ROCK") {
-    console.log("Paper beats rock! You lose.");
-    //   } else if (
-    //     playerSelection !== "ROCK" ||
-    //     playerSelection !== "PAPER" ||
-    //     playerSelection !== "SCISSORS"
-    //   ) {
-    //     console.log("Not a valid command. Please select rock, paper or scissors.");
-  } else if (result == playerSelection) {
-    console.log("Tie!");
-  } else console.log(`${playerSelection} beats ${result}! You win!`);
-};
+function playRound(playerSelection, computerSelection) {
+  let winner;
+  if (computerSelection == "ROCK" && playerSelection == "SCISSORS") {
+    winner = "Rock beats Scissors! You lose.";
+  } else if (computerSelection == "SCISSORS" && playerSelection == "PAPER") {
+    winner = "Scissors beats Paper! You lose.";
+  } else if (computerSelection == "PAPER" && playerSelection == "ROCK") {
+    winner = "Paper beats Rock! You lose.";
+  } else if (computerSelection == playerSelection) {
+    winner = "Tie!";
+  } else winner = `${playerSelection} beats ${computerSelection}! You win!`;
+  return winner;
+}
 
-console.log(playRound(result, playerSelection));
-
-
-const playRound = function (result, playerSelection) {
-    let winner;
-
-    if (result == "ROCK" && playerSelection == "SCISSORS") {
-      console.log("Rock beats scissors! You lose.");
-    } else if (result == "SCISSORS" && playerSelection == "PAPER") {
-      console.log("Scissors beats paper! You lose.");
-    } else if (result == "PAPER" && playerSelection == "ROCK") {
-      console.log("Paper beats rock! You lose.");
-      //   } else if (
-      //     playerSelection !== "ROCK" ||
-      //     playerSelection !== "PAPER" ||
-      //     playerSelection !== "SCISSORS"
-      //   ) {
-      //     console.log("Not a valid command. Please select rock, paper or scissors.");
-    } else if (result == playerSelection) {
-      console.log("Tie!");
-    } else console.log(`${playerSelection} beats ${result}! You win!`);
+console.log(playRound(playerSelection, computerSelection));
