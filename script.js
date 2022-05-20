@@ -12,9 +12,9 @@ const computerPlay = function () {
   return result;
 };
 
-const computerSelection = computerPlay();
+// const computerSelection = computerPlay();
 
-let playerSelection = prompt(`Rock, Paper or Scissors?`).toUpperCase();
+// let playerSelection = prompt(`Rock, Paper or Scissors?`).toUpperCase();
 
 function playRound(playerSelection, computerSelection) {
   let winner;
@@ -30,4 +30,18 @@ function playRound(playerSelection, computerSelection) {
   return winner;
 }
 
-console.log(playRound(playerSelection, computerSelection));
+// console.log(playRound(playerSelection, computerSelection));
+function game() {
+  //Play game 5 times
+  for (let i = 0; i < 5; i++) {
+    const playerSelection = prompt(`Rock, Paper or Scissors?`).toUpperCase();
+    const computerSelection = computerPlay();
+    // Call playRound function, passing in newly returned values
+    // from the playerPlay and computerPlay functions
+    const currentRound = playRound(playerSelection, computerSelection);
+    // Log our result
+    console.log(currentRound);
+  }
+}
+
+game();
